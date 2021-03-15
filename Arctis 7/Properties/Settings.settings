@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Arctis_7.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="lowColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">230, 57, 70</Value>
+    </Setting>
+    <Setting Name="mediumLowColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">244, 162, 97</Value>
+    </Setting>
+    <Setting Name="mediumHighColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">233, 196, 106</Value>
+    </Setting>
+    <Setting Name="highColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">42, 157, 143</Value>
+    </Setting>
+    <Setting Name="UseBackground" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowPercentage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PercentageColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26BB9AA4-54C7-4614-8657-CAF7D82EA48E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Arctis_7</RootNamespace>
+    <AssemblyName>Arctis 7</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>low-battery-level.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Arctis7Reader.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HIDBrowse.cs" />
+    <Compile Include="HIDDev.cs" />
+    <Compile Include="HIDInfo.cs" />
+    <Compile Include="Native.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.ico" />
+    <None Include="Resources\99.ico" />
+    <None Include="Resources\98.ico" />
+    <None Include="Resources\97.ico" />
+    <None Include="Resources\96.ico" />
+    <None Include="Resources\95.ico" />
+    <None Include="Resources\94.ico" />
+    <None Include="Resources\93.ico" />
+    <None Include="Resources\92.ico" />
+    <None Include="Resources\91.ico" />
+    <None Include="Resources\90.ico" />
+    <None Include="Resources\89.ico" />
+    <None Include="Resources\88.ico" />
+    <None Include="Resources\87.ico" />
+    <None Include="Resources\86.ico" />
+    <None Include="Resources\85.ico" />
+    <None Include="Resources\84.ico" />
+    <None Include="Resources\83.ico" />
+    <None Include="Resources\82.ico" />
+    <None Include="Resources\81.ico" />
+    <None Include="Resources\80.ico" />
+    <None Include="Resources\79.ico" />
+    <None Include="Resources\78.ico" />
+    <None Include="Resources\77.ico" />
+    <None Include="Resources\76.ico" />
+    <None Include="Resources\75.ico" />
+    <None Include="Resources\74.ico" />
+    <None Include="Resources\73.ico" />
+    <None Include="Resources\72.ico" />
+    <None Include="Resources\71.ico" />
+    <None Include="Resources\70.ico" />
+    <None Include="Resources\69.ico" />
+    <None Include="Resources\68.ico" />
+    <None Include="Resources\67.ico" />
+    <None Include="Resources\66.ico" />
+    <None Include="Resources\65.ico" />
+    <None Include="Resources\64.ico" />
+    <None Include="Resources\63.ico" />
+    <None Include="Resources\62.ico" />
+    <None Include="Resources\61.ico" />
+    <None Include="Resources\60.ico" />
+    <None Include="Resources\59.ico" />
+    <None Include="Resources\58.ico" />
+    <None Include="Resources\57.ico" />
+    <None Include="Resources\56.ico" />
+    <None Include="Resources\55.ico" />
+    <None Include="Resources\54.ico" />
+    <None Include="Resources\53.ico" />
+    <None Include="Resources\52.ico" />
+    <None Include="Resources\51.ico" />
+    <None Include="Resources\50.ico" />
+    <None Include="Resources\49.ico" />
+    <None Include="Resources\48.ico" />
+    <None Include="Resources\47.ico" />
+    <None Include="Resources\46.ico" />
+    <None Include="Resources\45.ico" />
+    <None Include="Resources\44.ico" />
+    <None Include="Resources\43.ico" />
+    <None Include="Resources\42.ico" />
+    <None Include="Resources\41.ico" />
+    <None Include="Resources\40.ico" />
+    <None Include="Resources\39.ico" />
+    <None Include="Resources\38.ico" />
+    <None Include="Resources\37.ico" />
+    <None Include="Resources\36.ico" />
+    <None Include="Resources\35.ico" />
+    <None Include="Resources\34.ico" />
+    <None Include="Resources\33.ico" />
+    <None Include="Resources\32.ico" />
+    <None Include="Resources\31.ico" />
+    <None Include="Resources\30.ico" />
+    <None Include="Resources\29.ico" />
+    <None Include="Resources\28.ico" />
+    <None Include="Resources\27.ico" />
+    <None Include="Resources\26.ico" />
+    <None Include="Resources\25.ico" />
+    <None Include="Resources\24.ico" />
+    <None Include="Resources\23.ico" />
+    <None Include="Resources\22.ico" />
+    <None Include="Resources\21.ico" />
+    <None Include="Resources\20.ico" />
+    <None Include="Resources\19.ico" />
+    <None Include="Resources\18.ico" />
+    <None Include="Resources\17.ico" />
+    <None Include="Resources\16.ico" />
+    <None Include="Resources\15.ico" />
+    <None Include="Resources\14.ico" />
+    <None Include="Resources\13.ico" />
+    <None Include="Resources\12.ico" />
+    <None Include="Resources\11.ico" />
+    <None Include="Resources\10.ico" />
+    <None Include="Resources\9.ico" />
+    <None Include="Resources\8.ico" />
+    <None Include="Resources\7.ico" />
+    <None Include="Resources\6.ico" />
+    <None Include="Resources\5.ico" />
+    <None Include="Resources\4.ico" />
+    <None Include="Resources\3.ico" />
+    <None Include="Resources\2.ico" />
+    <None Include="Resources\1.ico" />
+    <None Include="Resources\0.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="low-battery-level.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
