@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxColors = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxHigh = new System.Windows.Forms.TextBox();
@@ -58,7 +57,6 @@
             this.boxColorPerc = new System.Windows.Forms.PictureBox();
             this.checkBoxUsePerc = new System.Windows.Forms.CheckBox();
             this.checkBoxRunOnStartup = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBoxColors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boxColorHigh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxColorMedHigh)).BeginInit();
@@ -67,15 +65,6 @@
             this.groupBoxFont.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boxColorPerc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(355, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "V.0.0.2";
             // 
             // groupBoxColors
             // 
@@ -345,21 +334,11 @@
             this.checkBoxRunOnStartup.Text = "Run on Startup";
             this.checkBoxRunOnStartup.UseVisualStyleBackColor = true;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 160);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "By: Virre1337";
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 182);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.checkBoxRunOnStartup);
             this.Controls.Add(this.checkBoxUsePerc);
             this.Controls.Add(this.checkBoxUseBG);
@@ -367,7 +346,6 @@
             this.Controls.Add(this.groupBoxColors);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
@@ -388,8 +366,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBoxColors;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -418,6 +394,5 @@
         private System.Windows.Forms.PictureBox boxColorPerc;
         private System.Windows.Forms.CheckBox checkBoxUsePerc;
         private System.Windows.Forms.CheckBox checkBoxRunOnStartup;
-        private System.Windows.Forms.Label label12;
     }
 }
