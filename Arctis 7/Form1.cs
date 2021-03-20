@@ -1,7 +1,9 @@
 ﻿using Arctis_7.Properties;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Net.Http;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -14,6 +16,8 @@ namespace Arctis_7
         private string batteryPercentage;
         private bool muted = false;
         private byte cachedBatPerc = 200;
+        private byte cachedMutedState = 4;
+        private string currentVersion = "0.04";
         public Form1()
         {
             InitializeComponent();
@@ -28,14 +32,9 @@ namespace Arctis_7
 
         private void SetIcon(byte percentage)
         {
-            if (percentage >= 100)
-                percentage = 99;
-
-
             if (percentage != cachedBatPerc)
             {
                 notifyIconArtics7.Icon = GenerateIcon(percentage);
-                cachedBatPerc = percentage;
             }
         }
 
@@ -46,11 +45,19 @@ namespace Arctis_7
                 byte batCharge = 0;
                 if (reader.ReadBattery(out batCharge) && batCharge != 0)
                 {
+                    if (batCharge >= 100)
+                        batCharge = 99;
+
                     batteryPercentage = batCharge.ToString();
                     reader.ReadMute(out byte muteState);
-                    muted = (muteState == 1 ? true : false);
+                    if(muteState != cachedMutedState)
+                        muted = (muteState == 1 ? true : false);
+
                     SetIcon(batCharge);
-                    SetBalloonText(batCharge);
+                    SetBalloonText(batCharge, muteState);
+
+                    cachedMutedState = muteState;
+                    cachedBatPerc = batCharge;
                 }
                 else
                 {
@@ -132,11 +139,12 @@ namespace Arctis_7
             return Icon.FromHandle(flag.GetHicon());
         }
 
-        private void SetBalloonText(byte bt)
+        private void SetBalloonText(byte batCharge, byte muteState)
         {
             string mutedStr = (muted ? "Yes \n" : "No \n");
-            string battPerc = (bt >= 100 ? "99" : bt.ToString());
+            string battPerc = batCharge.ToString();
 
+            if(cachedBatPerc != batCharge || cachedMutedState != muteState)
             notifyIconArtics7.Text = "Arctis 7 Info \n" +
                 "Muted: " + mutedStr +
                 "Battery: " + battPerc + "%";
@@ -158,10 +166,8 @@ namespace Arctis_7
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Made by Viheiser! date: 4/20 time: 13:37 8) \n" +
-                "Couldn't have made this if it wasn't for crazyklatsch & MightyDevices \n" +
-                "SHOUT OUT TO THEIR FAMILIES! \n" +
-                "Also Thanks Sam for testing this and reporting bugs! \nCurrentVersion: 0.02", "About A7 BatteryReader", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var about = new About(currentVersion);
+            about.Show();
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,6 +183,52 @@ namespace Arctis_7
 
             reader = new Arctis7Reader();
             timer1.Start();
+        }
+
+        private void CheckForUpdate()
+        {
+            var latestVersion = GetLatestVersion();
+            if(latestVersion != null)
+            {
+                if(latestVersion != currentVersion)
+                {
+                    DialogResult result = MessageBox.Show($"New version found v.{latestVersion}! Do you want to update?", "Update Found!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Process.Start("https://github.com/Viheiser/Arctis7BatteryReader");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There is no new version available", "You're up to date", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong! Couldn't get latest version", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GetLatestVersion()
+        {
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var info = client.GetStringAsync("https://raw.githubusercontent.com/Viheiser/Arctis7BatteryReader/master/latest-version.txt").Result;
+                    return info.Replace("\n", "");
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+
+            }
+        }
+
+        private void checkForUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckForUpdate();
         }
     }
 }
